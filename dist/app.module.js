@@ -10,11 +10,12 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
+const idea_module_1 = require("./idea/idea.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
-        imports: [typeorm_1.TypeOrmModule.forRoot()],
+        imports: [typeorm_1.TypeOrmModule.forRoot(), idea_module_1.IdeaModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
