@@ -1,8 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseFilters } from '@nestjs/common';
 import { IdeaService } from './idea.service';
 import { IdeaDTO } from './idea.dto';
+import { HttpExceptionFilter } from '../shared/http-error-filter';
 
 @Controller('idea')
+@UseFilters(new HttpExceptionFilter())
 export class IdeaController {
   constructor(private readonly ideaService: IdeaService) {}
 
